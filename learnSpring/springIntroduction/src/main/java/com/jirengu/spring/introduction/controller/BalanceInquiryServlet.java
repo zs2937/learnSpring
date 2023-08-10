@@ -1,6 +1,6 @@
 package com.jirengu.spring.introduction.controller;
 
-import com.jirengu.spring.introduction.context.ApplicationContext;
+import com.jirengu.spring.introduction.context.MyApplicationContext;
 import com.jirengu.spring.introduction.pojo.BankOperationResult;
 import com.jirengu.spring.introduction.service.IBankService;
 
@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "balanceInquiryServlet", urlPatterns = "/balanceInquiry")
 public class BalanceInquiryServlet extends HttpServlet {
 
-    private IBankService bankService = ApplicationContext.getBeanV2(IBankService.class);
+    private IBankService bankService = MyApplicationContext.getBeanV2(IBankService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)

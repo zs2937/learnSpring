@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+    <bean id="account" class="com.jirengu.spring.introduction.pojo.Account">
+        <property name="money" value="1234"/>
+    </bean>
+
+    <bean id="account2" class="com.jirengu.spring.introduction.pojo.Account">
+        <property name="money" value="2345"/>
+    </bean>
+
+    <bean id="user" class="com.jirengu.spring.introduction.pojo.User" autowire="byName">
+        <property name="name" value="Vincent"/>
+        <property name="age" value="18"/>
+    </bean>
+
+<!--    <bean id="user" class="com.jirengu.spring.introduction.pojo.User">-->
+<!--        <constructor-arg name="name" value="Vincent"/>-->
+<!--        <constructor-arg name="age" value="18"/>-->
+<!--        <constructor-arg name="account" ref="account"/>-->
+<!--    </bean>-->
+
+</beans>

@@ -1,13 +1,10 @@
 package com.jirengu.spring.introduction.context;
 
-import com.jirengu.spring.introduction.service.IBankService;
-import com.jirengu.spring.introduction.service.UserService;
-
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ApplicationContext {
+public class MyApplicationContext {
 
     private static Map<String, Object> beanMap = new HashMap<>();
 
