@@ -20,6 +20,15 @@ public class SpringIoCTest {
     @Test
     public void testGetBeanAnnotation() {
         // 获取 Spring IoC 容器对象
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean2.xml");
+        // 从 Spring IoC 容器对象中获取 bean
+        Object object = applicationContext.getBean("user");
+        System.out.println(object);
+    }
+
+    @Test
+    public void testGetBeanAllAnnotation() {
+        // 获取 Spring IoC 容器对象
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
         // 从 Spring IoC 容器对象中获取 bean
         Object object = applicationContext.getBean("user");
