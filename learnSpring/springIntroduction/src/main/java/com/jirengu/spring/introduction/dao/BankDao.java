@@ -4,7 +4,9 @@ import com.jirengu.spring.introduction.mapper.AccountPOMapper;
 import com.jirengu.spring.introduction.pojo.AccountPO;
 import com.jirengu.spring.introduction.util.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class BankDao implements IBankDao {
 
     public AccountPO selectById(int id) {

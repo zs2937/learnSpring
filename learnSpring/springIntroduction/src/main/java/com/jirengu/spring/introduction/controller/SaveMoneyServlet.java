@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "saveMoneyServlet", urlPatterns = "/saveMoney")
 public class SaveMoneyServlet extends HttpServlet {
 
-    private IBankService bankService = MyApplicationContext.getBeanV2(IBankService.class);
+    private IBankService bankService = (IBankService) MyApplicationContext.getBean("bankService");
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)

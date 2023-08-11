@@ -3,10 +3,10 @@ package com.jirengu.spring.introduction.pojo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component("account1")
-public class Account implements IAccount {
+@Component("account2")
+public class AccountV2 {
 
-    @Value("1234")
+    @Value("2345")
     private Integer money;
 
     public Integer getMoney() {
@@ -19,7 +19,7 @@ public class Account implements IAccount {
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "AccountV2{" +
                 "money=" + money +
                 '}';
     }

@@ -3,11 +3,17 @@ package com.jirengu.spring.introduction.service;
 import com.jirengu.spring.introduction.dao.IBankDao;
 import com.jirengu.spring.introduction.pojo.AccountPO;
 import com.jirengu.spring.introduction.pojo.BankOperationResult;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
+@Service
 public class BankService implements IBankService {
 
+    @Resource
     private IBankDao bankDao;
 
+    @Resource
     private IUserService userService;
 
     public BankOperationResult balanceInquiry(int id) {

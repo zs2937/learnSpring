@@ -1,12 +1,22 @@
 package com.jirengu.spring.introduction.pojo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
+@Component
 public class User {
 
+    @Value("Vincent")
     private String name;
 
+    @Value("18")
     private Integer age;
 
-    private Account account;
+    @Resource
+    private IAccount account;
 
     public String getName() {
         return name;
@@ -24,11 +34,11 @@ public class User {
         this.age = age;
     }
 
-    public Account getAccount() {
+    public IAccount getAccount() {
         return account;
     }
 
-    public void setAccount(Account account) {
+    public void setAccount(IAccount account) {
         this.account = account;
     }
 
