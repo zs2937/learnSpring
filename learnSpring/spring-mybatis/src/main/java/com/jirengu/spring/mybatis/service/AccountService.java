@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 @Service
 public class AccountService implements IAccountService {
@@ -61,5 +62,16 @@ public class AccountService implements IAccountService {
     @Override
     public boolean transferMoneyWrapper(int fromAccountId, int toAccountId, int money) {
         return ((IAccountService) AopContext.currentProxy()).transferMoney(fromAccountId, toAccountId, money);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void saveMoney(int accountId, int money) throws IOException {
+        Integer balance = balanceInquiry(accountId);
+        AccountPO fromAccount = new AccountPO();
+        fromAccount.setId(accountId);
+        fromAccount.setMoney(balance + money);
+        accountPOMapper.updateByPrimaryKeySelective(fromAccount);
+        throw new IOException();
     }
 }

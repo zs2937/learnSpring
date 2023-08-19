@@ -7,6 +7,8 @@ import javax.annotation.Resource;
 public class AccountServiceTest extends BaseTest {
     @Resource
     private IAccountService accountService;
+    @Resource
+    private OuterService outerService;
     @Test
     public void testBalanceInquiry() {
         int id = 1;
@@ -31,5 +33,16 @@ public class AccountServiceTest extends BaseTest {
         boolean success = accountService.transferMoneyWrapper(fromAccountId, toAccountId, 10);
         String msg = success ? "成功" : "失败";
         System.out.println("转账" + msg);
+    }
+
+    @Test
+    public void testTransactionalRollbackFor() throws Exception {
+        int accountId = 1;
+        accountService.saveMoney(accountId, 10);
+    }
+
+    @Test
+    public void testPropagation() throws Exception {
+        outerService.outerMethod();
     }
 }
