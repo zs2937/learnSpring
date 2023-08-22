@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+    <h1>请输入用户信息进行注册</h1>
+    <form action="/hotel/userRegister" method="post">
+        username<input type="text" name="username"/>
+        <br>
+        age<input type="text" name="age"/>
+        <br>
+        hobby:
+            sing<input type="checkbox" name="hobby" value="s"/>
+            dance<input type="checkbox" name="hobby" value="d"/>
+            rap<input type="checkbox" name="hobby" value="r"/>
+            basketball<input type="checkbox" name="hobby" value="b"/>
+        <br>
+        <input type="submit" value="register"/>
+    </form>
+
+</body>
+</html>
