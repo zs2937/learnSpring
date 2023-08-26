@@ -12,25 +12,22 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@Controller
+@RestController
 @RequestMapping("/account")
 public class AccountController {
     @Resource
     private IAccountService accountService;
     @RequestMapping(value = "/balanceInquiry", method = RequestMethod.GET)
-    @ResponseBody
     public String balanceInquiry(@RequestParam("id") Integer id) {
         return accountService.balanceInquiry(id).toString();
     }
 
     @RequestMapping(value = "/queryAccount", method = RequestMethod.GET)
-    @ResponseBody
     public AccountPO queryAccount(@RequestParam("id") Integer id) {
         return accountService.queryAccount(id);
     }
 
-    @RequestMapping(value = "/queryAccountV2", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping("/queryAccountV2")
     public Response<AccountPO> queryAccountV2(@RequestParam("id") Integer id) {
         Response<AccountPO> response = new Response<>();
         AccountPO account =  accountService.queryAccount(id);
@@ -44,8 +41,7 @@ public class AccountController {
         return response;
     }
 
-    @RequestMapping(value = "/transferMoney", method = RequestMethod.POST)
-    @ResponseBody
+    @PostMapping("/transferMoney")
     public Response<Void> transferMoney(@RequestBody TransferMoneyRequest request) {
         Response<Void> response = new Response<>();
         try {
