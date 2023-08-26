@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- context id 可以自由定义 targetRuntime 选择 Mybatis3 -->
+    <context id="jirengu" targetRuntime="Mybatis3">
+
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
+        <!-- 注释信息配置 -->
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释，默认为 false -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否阻止生成的注释包含时间戳，默认为 false -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!--连接数据库信息-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/school"
+                        userId="root"
+                        password="rootroot"/>
+
+        <!--自动生成的 POJO 类存放包路径 -->
+        <javaModelGenerator targetPackage="com.jirengu.spring.mvc.pojo"
+                            targetProject="src/main/java">
+        </javaModelGenerator>
+
+        <!--自动生成的*Mapper.xml文件存放路径 -->
+        <sqlMapGenerator targetPackage="com.jirengu.spring.mvc.mapper"
+                         targetProject="src/main/resources">
+        </sqlMapGenerator>
+
+        <!--自动生成的*Mapper.java存放路径 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.jirengu.spring.mvc.mapper"
+                             targetProject="src/main/java" >
+        </javaClientGenerator>
+
+        <!-- 逆向解析的表 domainObjectName 是生成的 POJO 类类名 -->
+        <table tableName="account" domainObjectName="AccountPO">
+            <generatedKey column = "id" sqlStatement = "JDBC"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
