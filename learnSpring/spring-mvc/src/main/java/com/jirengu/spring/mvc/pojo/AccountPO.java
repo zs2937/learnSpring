@@ -60,4 +60,16 @@ public class AccountPO {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "AccountPO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", money=" + money +
+                ", userAge=" + userAge +
+                ", gender=" + gender +
+                ", status=" + status +
+                '}';
+    }
 }

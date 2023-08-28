@@ -29,6 +29,7 @@ public class AccountController {
 
     @GetMapping("/queryAccountV2")
     public Response<AccountPO> queryAccountV2(@RequestParam("id") Integer id) {
+        System.out.println("queryAccountV2 执行");
         Response<AccountPO> response = new Response<>();
         AccountPO account =  accountService.queryAccount(id);
         if (account == null) {
