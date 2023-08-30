@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: root
+    password: rootroot
+    url: jdbc:mysql://127.0.0.1:3306/school
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据源使用druid
+    type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 8082
+  servlet:
+    context-path: /springboot
