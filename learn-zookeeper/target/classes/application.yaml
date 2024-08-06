@@ -1,0 +1,9 @@
+zookeeper:
+  connectString: localhost:2181
+  sessionTimeout: 30000
+  connectionTimeout: 30000
+
+server:
+  port: 8082
+  servlet:
+    context-path: /learnZookeeper
